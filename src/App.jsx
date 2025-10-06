@@ -20,7 +20,7 @@ function App() {
         ></ShowSelection>
       </header>
       <main>
-        <ShowDetails show={selectedShow}></ShowDetails>
+        <ShowDetails selectedShow={selectedShow}></ShowDetails>
       </main>
     </>
   );

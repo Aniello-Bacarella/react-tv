@@ -1,12 +1,12 @@
 import { useState } from "react";
 import "./shows.css";
-import EpisodeList from "./episodes/EpisodeList";
-import EpisodeDetails from "./episodes/EpisodeDetails";
+import EpisodeList from "../episodes/EpisodeList";
+import EpisodeDetails from "../episodes/EpisodeDetails";
 
 /** Allows users to browse through the episodes of the given show */
 
 export default function ShowDetails({ selectedShow }) {
-  const [selectedEpisode, setSelectedEpisode] = useState(selectedShow);
+  const [selectedEpisode, setSelectedEpisode] = useState();
 
   if (!selectedShow) {
     return (
@@ -18,15 +18,13 @@ export default function ShowDetails({ selectedShow }) {
   }
   return (
     <section className="details">
-      <h2>
-        <EpisodeList
-          name={selectedShow.name}
-          episodes={selectedShow.episodes}
-          selectedEpisode={selectedShow.selectedEpisode}
-          setSelectedEpisode={selectedShow.setSelectedEpisode}
-        ></EpisodeList>
-        <EpisodeDetails episode={selectedShow.selectedEpisode}></EpisodeDetails>
-      </h2>
+      <EpisodeList
+        name={selectedShow.name}
+        episodes={selectedShow.episodes}
+        selectedEpisode={selectedEpisode}
+        setSelectedEpisode={setSelectedEpisode}
+      ></EpisodeList>
+      <EpisodeDetails episode={selectedEpisode}></EpisodeDetails>
     </section>
   );
 }

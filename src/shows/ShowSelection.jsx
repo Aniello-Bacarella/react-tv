@@ -1,16 +1,28 @@
 import "./shows.css";
 
 /** A navbar that allows users to choose between a list of shows */
-export default function ShowSelection({ shows, setSelectedShow }) {
+
+function ShowSelection({ shows, setSelectedShow }) {
   return (
     <nav className="show">
-      <a class="show">
+      <ul>
         {shows.map((show) => (
-          <li key={show.name} onClick={() => setSelectedShow(show)}>
-            {show.name}
+          <li key={show.name}>
+            <a
+              href="#"
+              className="show"
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedShow(show);
+              }}
+            >
+              {show.name}
+            </a>
           </li>
         ))}
-      </a>
+      </ul>
     </nav>
   );
 }
+
+export default ShowSelection;
