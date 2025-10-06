@@ -1,9 +1,13 @@
+import { useState } from "react";
 import "./shows.css";
+import EpisodeList from "./EpisodeList";
+import EpisodeDetails from "./EpisodeDetails";
 
 /** Allows users to browse through the episodes of the given show */
 
 export default function ShowDetails({ selectedShow }) {
-  const [selectedEpisode] = useState(selectedShow);
+  const [selectedEpisode, setSelectedEpisode] = useState(selectedShow);
+
   if (!selectedShow) {
     return (
       <section className="details">

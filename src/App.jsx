@@ -7,7 +7,7 @@ import { tvShows } from "./shows/data";
 import ShowSelection from "./shows/ShowSelection";
 import ShowDetails from "./shows/ShowDetails";
 
-export default function App() {
+function App() {
   const [showSelection] = useState(tvShows);
   const [selectedShow, setSelectedShow] = useState();
   return (
@@ -25,3 +25,5 @@ export default function App() {
     </>
   );
 }
+
+export default App;
